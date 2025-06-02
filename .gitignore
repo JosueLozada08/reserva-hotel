@@ -1,10 +1,19 @@
+# Archivos específicos
 HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 
-### STS ###
+# Ignorar target excepto carpetas necesarias
+target/
+!target/site/
+!target/site/**
+!target/test-classes/
+!target/test-classes/**
+!target/surefire-reports/
+!target/surefire-reports/**
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# STS (Spring Tool Suite)
 .apt_generated
 .classpath
 .factorypath
@@ -13,21 +22,23 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
+# IntelliJ IDEA
 .idea
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
+
+# Ignorar build excepto en src
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
+# VS Code
 .vscode/
