@@ -1,14 +1,7 @@
 # Archivos específicos
 HELP.md
 
-# Ignorar target excepto carpetas necesarias
-target/
-!target/site/
-!target/site/**
-!target/test-classes/
-!target/test-classes/**
-!target/surefire-reports/
-!target/surefire-reports/**
+
 
 # Maven wrapper
 .mvn/wrapper/maven-wrapper.jar
