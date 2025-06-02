@@ -11,27 +11,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name:  Checkout del código
+    - name: Checkout del código
       uses: actions/checkout@v3
 
-    - name:  Instalar JDK 17
+    - name: Configurar JDK 17
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
         java-version: '17'
+        cache: maven
 
-    - name:  Configurar permisos Maven
+    - name: Dar permisos a Maven Wrapper
       run: chmod +x mvnw
 
-    - name:  Compilar y ejecutar pruebas
+    - name: Compilar y ejecutar pruebas
       run: ./mvnw clean verify
 
-    - name:  Generar reporte JaCoCo
+    - name: Generar reporte JaCoCo
       run: ./mvnw jacoco:report
 
-    - name:  Ejecutar Checkstyle
+    - name: Ejecutar Checkstyle
       run: ./mvnw checkstyle:check
 
-    - name:  Ejecutar SpotBugs
+    - name: Ejecutar SpotBugs
       run: ./mvnw spotbugs:spotbugs
+
+      #prueba
+
 
