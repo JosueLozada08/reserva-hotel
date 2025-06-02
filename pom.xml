@@ -19,7 +19,9 @@
     <description>Proyecto demo para gestión de reservas de hotel</description>
 
     <properties>
-    <java.version>17</java.version>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -57,7 +59,7 @@
             <version>2.3.0</version>
         </dependency>
 
-        <!-- Test -->
+        <!-- Tests -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -68,13 +70,13 @@
     <build>
         <plugins>
 
-            <!-- Spring Boot -->
+            <!-- Spring Boot Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!-- Compiler plugin con soporte para Java 21 -->
+            <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -82,12 +84,10 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
-                    <release>17</release>
                 </configuration>
             </plugin>
 
-
-            <!-- JaCoCo -->
+            <!-- JaCoCo Plugin -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -108,14 +108,21 @@
                 </executions>
             </plugin>
 
-            <!-- Checkstyle -->
+            <!-- Checkstyle Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>3.3.0</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>10.12.1</version>
+                    </dependency>
+                </dependencies>
                 <executions>
                     <execution>
-                        <id>checkstyle-validation</id>
+                        <id>validate</id>
                         <phase>validate</phase>
                         <goals>
                             <goal>check</goal>
@@ -130,7 +137,7 @@
                 </configuration>
             </plugin>
 
-            <!-- SpotBugs -->
+            <!-- SpotBugs Plugin -->
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
@@ -153,4 +160,5 @@
 
         </plugins>
     </build>
+
 </project>
